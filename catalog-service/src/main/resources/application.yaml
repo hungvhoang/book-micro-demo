@@ -1,6 +1,11 @@
 spring:
   application:
     name: catalog-service
+  r2dbc:
+    url: ${DB_URL:r2dbc:postgresql://localhost:15432/postgres}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+
 
 server:
   port: 8081
@@ -10,4 +15,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: *
+        include: '*'
+  info:
+    git:
+      mode: full
